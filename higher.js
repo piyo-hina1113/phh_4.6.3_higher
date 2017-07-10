@@ -1,12 +1,12 @@
-//高階関数
-function myHigherFunction(func) {
-    console.log("myHigherFunction")
+function arryWalk(data,f){
+    for(var key in data){
+        f(data[key],key);
+    }
 }
 
-//普通の関数
-function outsideFunction(){
-    console.log("outsideFunction")
+function showElement(value,key){
+    console.log(key + ":" + value);
 }
 
-outsideFunction(); //←普通の関数よびだし
-myHigherFunction(outsideFunction);//関数渡し
+var ary = [1,2,4,8,16];
+arryWalk(ary,showElement);
